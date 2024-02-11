@@ -1,21 +1,14 @@
-// const express = require(`express`)
-// const app = express
-
-// app.get(`/`, (req, res)=>{
-//     console.log(`Hello from the main path!`)
-//     res.send(`Welcome to the main path.`)
-// })
-
-// app.listen(process.env.PORT, ()=> console.log(`page is up and running`))
-
-
-// need to configure dotenv for above 
-
-const express = require('express')
+const express = require(`express`)
 const app = express()
+require(`dotenv`).config()
+const PORT = process.env.PORT
 
-app.get('/', (req, res) => {
-  res.send('Hello, world!')
+app.get(`/`, (req, res)=>{
+    console.log(`Hello from the main path!`)
+    res.send(`Welcome to the main path.`)
 })
 
-app.listen(3000)
+app.listen(PORT, ()=> console.log(`Server  is running in port ${PORT}`))
+
+
+module.exports = app;
